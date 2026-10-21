@@ -1,75 +1,86 @@
-import { School, University } from "lucide-react"
+
+import { School, University } from "lucide-react";
 
 const education = [
   {
-    "logo" : <University />,
-    "date": "2020-2024",
-    "course": "Btech in Computer Science and Engineering",
-    "center": "TKM Institute of Technology",
-    "place": "Kollam",
-    "cgpa": "7.17"
+    logo: University,
+    date: "2020–2024",
+    course: "B.Tech in Computer Science and Engineering",
+    center: "TKM Institute of Technology",
+    place: "Kollam",
+    cgpa: "7.17 CGPA",
   },
   {
-    "logo": <School />,
-    "date": "2018-2020",
-    "course": "Higher Scecondary (Plus 2)",
-    "center": "St. Marys HSS",
-    "place": "Ernakulam",
-    "cgpa": "86%"
-  }
-]
+    logo: School,
+    date: "2018–2020",
+    course: "Higher Secondary (Plus Two)",
+    center: "St. Mary's HSS",
+    place: "Ernakulam",
+    cgpa: "86%",
+  },
+];
 
 function Education() {
   return (
-    <div id="education" style={{ color: '#a1ccdc' }}
-      className="px-35 flex flex-col justify-center pt-30" >
-      <h1 className="text-blue-400 p-2">
+    <section
+      id="education"
+      style={{ color: "#a1ccdc" }}
+      className="flex flex-col justify-center scroll-mt-24 px-5 pt-20 sm:px-8 sm:pt-24 lg:px-12 xl:px-20 2xl:px-28"
+    >
+      <p className="p-2 text-sm font-semibold tracking-widest text-blue-400">
         05 / FOUNDATIONS
-      </h1>
-      <div className="flex justify-between items-center pb-20">
-        <div>
-          <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-['Space_Grotesk']">
-            Education &  {' '}
-            <span className="text-blue-400">
-              growth.
-            </span>
-          </h1>
-        </div>
+      </p>
+
+      <div className="pb-10 sm:pb-14 lg:pb-16">
+        <h1 className="font-['Space_Grotesk'] text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          Education &amp;
+          <br className="sm:hidden" />{" "}
+          <span className="text-blue-400">growth.</span>
+        </h1>
       </div>
 
-      <div className=" grid grid-cols-2 gap-3">
-        {education.map((edu, index) => {
+      <div className="grid min-w-0 grid-cols-1 gap-5 pb-12 md:grid-cols-2 md:gap-6 lg:gap-8">
+        {education.map((edu) => {
+          const Logo = edu.logo;
+
           return (
-            <div key={index}
-              className="border-2 border-[#094d78] p-5 bg-[#042b44]/30 rounded-2xl flex gap-5">
-              <div className="border-2 h-fit p-3 rounded-2xl border-[#094d78] bg-[#096b90]/30">
-                {edu.logo}
+            <article
+              key={edu.date}
+              className="flex min-w-0 flex-col gap-4 rounded-2xl border border-[#094d78] bg-[#042b44]/30 p-5 transition duration-300 hover:border-[#71b7d5]/70 sm:flex-row sm:gap-5 sm:p-6 lg:p-7"
+            >
+              <div className="flex h-fit w-fit shrink-0 items-center justify-center rounded-2xl border border-[#094d78] bg-[#096b90]/30 p-3">
+                <Logo size={28} className="text-[#71b7d5]" />
               </div>
-              <div>
-                <div className="text-[#096b90] p-2">
+
+              <div className="min-w-0 flex-1">
+                <p className="mb-2 text-sm font-medium text-[#71b7d5]">
                   {edu.date}
-                </div>
-                <div className="text-white font-bold p-2 text-3xl font-['Space_Grotesk']">
+                </p>
+
+                <h2 className="break-words font-['Space_Grotesk'] text-xl font-bold leading-snug text-white sm:text-2xl lg:text-3xl">
                   {edu.course}
-                </div>
-                <div className="font-bold text-2xl p-2 font-['Space_Grotesk']">
+                </h2>
+
+                <h3 className="mt-3 break-words font-['Space_Grotesk'] text-lg font-semibold text-[#a1ccdc] sm:text-xl">
                   {edu.center}
-                </div>
-                <div className="flex justify-start gap-5 p-2">
-                  <div className="rounded-full border border-[#71b7d5]/30 px-3 py-1 text-xs text-[#71b7d5]">
+                </h3>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-[#71b7d5]/30 px-3 py-1.5 text-xs text-[#71b7d5] sm:text-sm">
                     {edu.place}
-                  </div>
-                  <div className="rounded-full border border-[#71b7d5]/30 px-3 py-1 text-xs text-[#71b7d5]">
+                  </span>
+
+                  <span className="rounded-full border border-[#71b7d5]/30 px-3 py-1.5 text-xs text-[#71b7d5] sm:text-sm">
                     {edu.cgpa}
-                  </div>
+                  </span>
                 </div>
               </div>
-            </div>
-          )
+            </article>
+          );
         })}
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
-export default Education
+export default Education;
