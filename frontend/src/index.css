@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+}
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-once {
+  animation: spin-once 1s ease-in-out 1 forwards;
+}
